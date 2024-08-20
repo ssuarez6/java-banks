@@ -4,7 +4,6 @@ import com.epam.jmp_dto.BankCard;
 import com.epam.jmp_dto.Subscription;
 import com.epam.jmp_dto.User;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;

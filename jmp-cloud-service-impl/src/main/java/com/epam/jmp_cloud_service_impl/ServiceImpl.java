@@ -11,7 +11,11 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ServiceImpl implements Service {
-    Map<User, List<Subscription>> subscriptionsByUser = new HashMap<>();
+    private Map<User, List<Subscription>> subscriptionsByUser;
+    
+    public ServiceImpl(){
+        subscriptionsByUser = new HashMap<>();
+    }
 
     @Override
     public void subscribe(BankCard card) {
