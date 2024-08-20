@@ -8,11 +8,15 @@ public class CentralBank implements Bank {
     public BankCard createBankCard(User user, BankCardType type) {
         switch (type) {
             case DEBIT:
-                return new DebitBankCard(CardNumberGenerator.generateCardNumber(), user);
+                return createCard(DebitBankCard::new, CardNumberGenerator.generateCardNumber(), user);
             case CREDIT:
-                return new CreditBankCard(CardNumberGenerator.generateCardNumber(), user);
+                return createCard(CreditBankCard::new, CardNumberGenerator.generateCardNumber(), user);
             default:
                 throw new IllegalArgumentException("Unknown card type");
         }
+    }
+
+    private BankCard createCard(BankCardFactory factory, String digits, User user) {
+        return factory.create(digits, user);
     }
 }
